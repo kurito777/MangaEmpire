@@ -225,4 +225,13 @@ hr {
         background-color: black;
         display: none;
     }
+    .menu .navbar ul li {
+        width: 100%;
+    }
+    .bn-1 {
+        display: none;
+    }
+    #menu:checked ~ .navbar {
+        display: initial;
+    }
 }
