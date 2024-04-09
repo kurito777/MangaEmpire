@@ -173,3 +173,39 @@ hr {
     background-color: #ff2f2b;
     color: white;
 }
+.content img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.content {
+    color: white;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0;
+    margin-top: 100px;
+    border-top: 1px solid #ff2f2b3D;
+}
+
+.footer ul {
+    display: flex;
+}
+.footer h3 {
+    font-size: 30px;
+}
+.footer a{
+    color: white;
+    font-size: 20px;
+    margin-right: 20px;
+    display: block;
+}
+.footer a:hover {
+    color: #ff2f2b;
+}
