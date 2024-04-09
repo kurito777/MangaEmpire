@@ -1,15 +1,27 @@
-<div class="admin-menu">
-    <h2>Panel de Administrador</h2>
-    <ul>
-        <li><a href="#">Subir Manga</a></li>
-        <li><a href="#">Gestionar Categorías</a></li>
-        <li><a href="#">Gestionar Usuarios</a></li>
-    </ul>
-</div>
-<div class="upload-manga">
-    <h2>Subir Manga</h2>
-    <form enctype="multipart/form-data" method="post" action="upload.php">
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <button type="submit">Subir</button>
-    </form>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mangas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="admin-menu">
+       <h2>Panel de Administrador</h2>
+      <ul>
+          <li><a href="#">Subir Manga</a></li>
+         <li><a href="#">Gestionar Categorías</a></li>
+          <li><a href="#">Gestionar Usuarios</a></li>
+       </ul>
+    </div>
+    <div class="upload-manga">
+       <h2>Subir Manga</h2>
+      <form enctype="multipart/form-data" method="post" action="upload.php">
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <button type="submit">Subir</button>
+      </form>
+    </div>
+</body>
