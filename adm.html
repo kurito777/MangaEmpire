@@ -8,22 +8,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="menu contenedor">
+            <a href="a" class="logo">mangaempire</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="img/mm1.jpg" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="http://127.0.0.1:3000/index.html">Inicio</a></li>
+                    <li><a href="http://127.0.0.1:3000/categorias.html">Categorias</a></li>
+                    <li><a href="http://127.0.0.1:3000/adm.html">Mangas</a></li>
+                    <li><a href="https://twitter.com/EmpireMang777">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="http://127.0.0.1:3000/login.html" class="btn-1">Login</a>
+        </div>
+        <div class="header-content container">
+            <div class="header-1">
+                <img src="img/lg1.png" alt="">
+                <a href="#" class="btn-2">Ver ahora</a>
+
+            </div>
+    <header>
     
-    <div class="admin-menu">
-       <h2>Panel de Administrador</h2>
-      <ul>
-          <li><a href="#">Subir Manga</a></li>
-         <li><a href="#">Gestionar Categorías</a></li>
-          <li><a href="#">Gestionar Usuarios</a></li>
-       </ul>
-    </div>
-    <div class="upload-manga">
-       <h2>Subir Manga</h2>
-      <form enctype="multipart/form-data" method="post" action="upload.php">
-          <input type="file" name="fileToUpload" id="fileToUpload">
-          <button type="submit">Subir</button>
-      </form>
-    </div>
+    <section>
+        <div class="admin-menu">
+            <h2>Panel de Administrador</h2>
+           <ul>
+               <li><a href="#">Subir Manga</a></li>
+              <li><a href="#">Gestionar Categorías</a></li>
+               <li><a href="#">Gestionar Usuarios</a></li>
+            </ul>
+         </div>
+         <div class="upload-manga">
+            <h2>Subir Manga</h2>
+           <form enctype="multipart/form-data" method="post" action="upload.php">
+               <input type="file" name="fileToUpload" id="fileToUpload">
+               <button type="submit">Subir</button>
+           </form>
+         </div>
+    </section>
 </body>
 
 <footer class="footer container">
