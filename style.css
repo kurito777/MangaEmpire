@@ -127,7 +127,7 @@ hr {
 .box-container-2 ,
 .box-container-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit , minmax(220px, 2fr));
+    grid-template-columns: repeat(auto-fit , minmax(220px, 1fr));
     gap: 40px;
 }
 
