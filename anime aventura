@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mangas</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu contenedor">
+            <a href="http://127.0.0.1:3000/index.html" class="logo">mangaempire</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="img/mm1.jpg" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="http://127.0.0.1:3000/index.html">Inicio</a></li>
+                    <li><a href="http://127.0.0.1:3000/categorias.html">Categorias</a></li>
+                    <li><a href="http://127.0.0.1:3000/adm.html">Mangas</a></li>
+                    <li><a href="https://twitter.com/EmpireMang777">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="http://127.0.0.1:3000/login.html" class="btn-1">Login</a>
+        </div>
+        <div class="header-content container">
+            <div class="header-1">
+                <img src="img/lg1.png" alt="">
+                <a href="#" class="btn-2">Ver ahora</a>
+
+            </div>
+            <div class="header-2">
+                <h1>Todas las <br>Categorias</h1>
+            </div>
+        </div>
+    </header>
+    <section class="mangas cointainer">
+
+        <h2>House Mayton's Youngest</h2>
+        <hr>
+
+        <div class="box-container-1">
+
+            <div class="box-1">
+                <div class="content">
+                    <img src="img/mg1.webp" alt="">
+                    <h3>Manga Hd</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Magnam totam ratione sit aliquid molestiae repudiandae illo unde nesciunt
+                    </p>
+                </div>
+
+            </div>
+            <div>
+                <h2>Capítulos</h2>
+                <ul>
+                   <li><a href="#"><h1>-Capitulo 01-</h1></a></li>
+                   <li><a href="#"><h1>-Capitulo 02-</h1></a></li>
+                   <li><a href="#"><h1>-Capitulo 03-</h1></a></li>
+                   <li><a href="#"><h1>-Capitulo 04-</h1></a></li>
+                   <li><a href="#"><h1>-Capitulo 05-</h1></a></li>
+                </ul>
+            </div>
+        </div>             
+    </section>
+    <footer class="footer container">
+        <h3>mangaempire</h3>
+        <ul>
+            <li> <a href="a">Inicio</a></li>
+            <li> <a href="a">Nosotros</a></li>
+            <li> <a href="a">Mangas</a></li>
+            <li> <a href="a">Contacto</a></li>
+        </ul>
+    </footer>
+    <script src="script.js"></script>
+</body>
