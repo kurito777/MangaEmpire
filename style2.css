@@ -196,7 +196,7 @@ hr {
     align-items: center;
     padding: 100px 0;
     margin-top: 100px;
-    border-top: 1px solid #ff2f2b3D;
+    border-top: 1px solid #ff0400;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -206,7 +206,7 @@ hr {
     display: flex;
 }
 .footer h3 {
-    font-size: 30px;
+    font-size: 56px;
 }
 .footer a{
     color: white;
@@ -266,5 +266,8 @@ hr {
     .footer ul {
         margin-top: 15px;
         justify-content: center;
+    }
+    .mangas ul li a:hover{
+     color: #ff0000;
     }
 }
