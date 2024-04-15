@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mangas</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
@@ -42,22 +42,33 @@
         </div>
     </header>
     <hr>
-    <section>
-        <div class="admin-menu">
-            <h2>Panel de Administrador</h2>
-           <ul>
-               <li><a href="#">Subir Manga</a></li>
-              <li><a href="#">Gestionar Categorías</a></li>
-               <li><a href="#">Gestionar Usuarios</a></li>
-            </ul>
-         </div>
-         <div class="upload-manga">
-            <h2>Subir Manga</h2>
-           <form enctype="multipart/form-data" method="post" action="upload.php">
-               <input type="file" name="fileToUpload" id="fileToUpload">
-               <button type="submit">Subir</button>
-           </form>
-         </div>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="admin-menu">
+                    <h2>Panel de Administrador</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#">Subir Manga</a></li>
+                        <br>
+                        <li class="list-group-item"><a href="#">Gestionar Categorías</a></li>
+                        <br>
+                        <li class="list-group-item"><a href="#">Gestionar Usuarios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="upload-manga">
+                    <h2>Subir Manga</h2>
+                    <form enctype="multipart/form-data" method="post" action="upload.php">
+                        <div class="form-group">
+                            <label for="fileToUpload">Seleccionar archivo:</label>
+                            <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
     <hr>
     <footer class="footer container">
