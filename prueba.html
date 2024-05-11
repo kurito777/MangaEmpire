@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="admin-menu">
+                    <h2>Panel de Administrador</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#" onclick="mostrarFormularioSubirManga()">Subir Manga</a></li>
+                        <br>
+                        <!-- Otros elementos del menú -->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8" id="formularioSubirManga" style="display: none;">
+                <div class="upload-manga">
+                    <h2>Subir Manga</h2>
+                    <form id="formSubirManga">
+                        <div class="form-group">
+                            <label for="titulo">Título:</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="capitulos">Número de Capítulos:</label>
+                            <input type="number" class="form-control" id="capitulos" name="capitulos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado del Manga:</label>
+                            <select class="form-control" id="estado" name="estado" required>
+                                <option value="En curso">En curso</option>
+                                <option value="Completo">Completo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="imagen">Seleccionar imagen:</label>
+                            <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                            <button type="button" class="btn btn-secondary" onclick="cancelarSubida()">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="mangasContainer" class="box-container">
+        <!-- Aquí se cargarán los mangas -->
+    </div>
+
+    <script>
+        // Función para mostrar el formulario de subir manga
+        function mostrarFormularioSubirManga() {
+            document.getElementById('formularioSubirManga').style.display = 'block';
+        }
+
+        // Función para cancelar la subida de manga
+        function cancelarSubida() {
+            document.getElementById('formularioSubirManga').style.display = 'none';
+        }
+
+        // Función para manejar el envío del formulario
+        document.getElementById('formSubirManga').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+
+            // Obtener datos del formulario
+            var titulo = document.getElementById('titulo').value;
+            var capitulos = document.getElementById('capitulos').value;
+            var estado = document.getElementById('estado').value;
+            var imagen = document.getElementById('imagen').files[0];
+
+            // Validar los datos (aquí puedes agregar tus propias validaciones)
+
+            // Guardar los datos en el Local Storage
+            var manga = {
+                titulo: titulo,
+                capitulos: capitulos,
+                estado: estado,
+                imagen: imagen.name // Guardar solo el nombre de la imagen para referencia
+            };
+            var mangas = JSON.parse(localStorage.getItem('mangas')) || [];
+            mangas.push(manga);
+            localStorage.setItem('mangas', JSON.stringify(mangas));
+
+            // Subir la imagen a través de AJAX o realizar otras acciones necesarias
+
+            // Limpiar el formulario o hacer otras acciones necesarias
+            document.getElementById('formSubirManga').reset();
+            cancelarSubida(); // Ocultar el formulario de subida
+
+            // Mostrar los mangas en el contenedor
+            mostrarMangas();
+
+            alert('Manga subido exitosamente.');
+        });
+
+        // Función para mostrar los mangas en el contenedor
+        function mostrarMangas() {
+            var mangas = JSON.parse(localStorage.getItem('mangas')) || [];
+            var mangasContainer = document.getElementById('mangasContainer');
+            mangasContainer.innerHTML = ''; // Limpiar el contenedor
+
+            mangas.forEach(function(manga, index) {
+                var mangaElement = document.createElement('div');
+                mangaElement.classList.add('manga');
+                mangaElement.innerHTML = `
+                    <h3>${manga.titulo}</h3>
+                    <p>Número de Capítulos: ${manga.capitulos}</p>
+                    <p>Estado del Manga: ${manga.estado}</p>
+                    <img src="${manga.imagen}" alt="${manga.titulo}"/>
+                    <button onclick="editarManga(${index})">Editar</button>
+                    <button onclick="eliminarManga(${index})">Eliminar</button>
+                `;
+                mangasContainer.appendChild(mangaElement);
+            });
+        }
+
+        // Función para editar un manga
+        function editarManga(index) {
+            var mangas = JSON.parse(localStorage.getItem('mangas')) || [];
+            var manga = mangas[index];
+            if (manga) {
+                document.getElementById('titulo').value = manga.titulo;
+                document.getElementById('capitulos').value = manga.capitulos;
+                document.getElementById('estado').value = manga.estado;
+                document.getElementById('imagen').value = ''; // Limpiar el campo de imagen
+                mangas.splice(index, 1); // Eliminar el manga antiguo
+                localStorage.setItem('mangas', JSON.stringify(mangas));
+                mostrarFormularioSubirManga(); // Mostrar el formulario para editar
+            }
+        }
+
+        // Función para eliminar un manga
+        function eliminarManga(index) {
+            var mangas = JSON.parse(localStorage.getItem('mangas')) || [];
+            mangas.splice(index, 1); // Eliminar el manga
+            localStorage.setItem('mangas', JSON.stringify(mangas));
+            mostrarMangas(); // Mostrar los mangas actualizados
+            alert('Manga eliminado exitosamente.');
+        }
+
+        // Mostrar mangas al cargar la página
+        mostrarMangas();
+    </script>
+</body>
+</html>
