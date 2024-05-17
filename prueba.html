@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<body>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="style3.css" rel="stylesheet">
 </head>
@@ -16,7 +18,7 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="http://127.0.0.1:3000/index.html">Inicio</a></li>
-                    <li><a href="http://127.0.0.1:3000/categorias.html">Categorias</a></li>
+                    <li><a href="http://127.0.0.1:3000/categorias.html">Categorías</a></li>
                     <li><a href="http://127.0.0.1:3000/adm.html">Mangas</a></li>
                     <li><a href="https://twitter.com/EmpireMang777">Contacto</a></li>
                 </ul>
@@ -28,24 +30,20 @@
             <div class="header-1">
                 <img src="img/lg1.png" alt="">
                 <a href="#" class="btn-2">Ver ahora</a>
-
             </div>
             <div class="header-2">
-                <h1>los mejores <br>mangas</h1>
+                <h1>Los mejores <br>mangas</h1>
             </div>
         </div>
     </header>
 
-<body>
-    <title>Panel de Administrador</title>
     <section class="container">
         <div class="row">
             <div class="col-md-4">
                 <div class="admin-menu">
                     <h2>Panel de Administrador</h2>
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="#" onclick="mostrarFormularioSubirManga()">Subir Manga</a></li>
-                        <br>
+                        <li class="list-group-item"><a href="#" id="linkSubirManga">Subir Manga</a></li>
                         <!-- Otros elementos del menú -->
                     </ul>
                 </div>
@@ -75,7 +73,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Aceptar</button>
-                            <button type="button" class="btn btn-secondary" onclick="cancelarSubida()">Cancelar</button>
+                            <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
                         </div>
                     </form>
                 </div>
@@ -87,18 +85,29 @@
         <!-- Aquí se cargarán los mangas -->
     </div>
 
+    <footer class="footer container">
+        <h3>mangaempire</h3>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Mangas</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <audio controls loop>
+            <source src="audio/musica2.mp3" type="audio/mpeg">
+        </audio>
+    </footer>
+
     <script>
-        // Función para mostrar el formulario de subir manga
-        function mostrarFormularioSubirManga() {
+        document.getElementById('linkSubirManga').addEventListener('click', function(event) {
+            event.preventDefault();
             document.getElementById('formularioSubirManga').style.display = 'block';
-        }
+        });
 
-        // Función para cancelar la subida de manga
-        function cancelarSubida() {
+        document.getElementById('btnCancelar').addEventListener('click', function() {
             document.getElementById('formularioSubirManga').style.display = 'none';
-        }
+        });
 
-        // Función para manejar el envío del formulario
         document.getElementById('formSubirManga').addEventListener('submit', function(event) {
             event.preventDefault(); // Evitar el envío del formulario
 
@@ -125,7 +134,7 @@
 
             // Limpiar el formulario o hacer otras acciones necesarias
             document.getElementById('formSubirManga').reset();
-            cancelarSubida(); // Ocultar el formulario de subida
+            document.getElementById('formularioSubirManga').style.display = 'none'; // Ocultar el formulario de subida
 
             // Mostrar los mangas en el contenedor
             mostrarMangas();
@@ -133,7 +142,6 @@
             alert('Manga subido exitosamente.');
         });
 
-        // Función para mostrar los mangas en el contenedor
         function mostrarMangas() {
             var mangas = JSON.parse(localStorage.getItem('mangas')) || [];
             var mangasContainer = document.getElementById('mangasContainer');
@@ -154,7 +162,6 @@
             });
         }
 
-        // Función para editar un manga
         function editarManga(index) {
             var mangas = JSON.parse(localStorage.getItem('mangas')) || [];
             var manga = mangas[index];
@@ -165,11 +172,10 @@
                 document.getElementById('imagen').value = ''; // Limpiar el campo de imagen
                 mangas.splice(index, 1); // Eliminar el manga antiguo
                 localStorage.setItem('mangas', JSON.stringify(mangas));
-                mostrarFormularioSubirManga(); // Mostrar el formulario para editar
+                document.getElementById('formularioSubirManga').style.display = 'block'; // Mostrar el formulario para editar
             }
         }
 
-        // Función para eliminar un manga
         function eliminarManga(index) {
             var mangas = JSON.parse(localStorage.getItem('mangas')) || [];
             mangas.splice(index, 1); // Eliminar el manga
@@ -179,18 +185,8 @@
         }
 
         // Mostrar mangas al cargar la página
-        mostrarMangas();
+        document.addEventListener('DOMContentLoaded', mostrarMangas);
     </script>
-    <footer class="footer container">
-        <h3>mangaempire</h3>
-        <ul>
-            <li> <a href="a">Inicio</a></li>
-            <li> <a href="a">Nosotros</a></li>
-            <li> <a href="a">Mangas</a></li>
-            <li> <a href="a">Contacto</a></li>
-        </ul>
-        <audio> <source src="audio/musica1.mp3" type="audio/mpeg"> </audio>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
