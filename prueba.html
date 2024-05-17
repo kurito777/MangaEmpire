@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
+<body>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administrador</title>
-    <link rel="stylesheet" href="style3.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style3.css" rel="stylesheet">
 </head>
 <body>
+    <header class="header">
+        <div class="menu contenedor">
+            <a href="http://127.0.0.1:3000/index.html" class="logo">mangaempire</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="img/barF.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="http://127.0.0.1:3000/index.html">Inicio</a></li>
+                    <li><a href="http://127.0.0.1:3000/categorias.html">Categorias</a></li>
+                    <li><a href="http://127.0.0.1:3000/adm.html">Mangas</a></li>
+                    <li><a href="https://twitter.com/EmpireMang777">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="http://127.0.0.1:3000/login.html" class="btn-1">Login</a>
+        </div>
+
+        <div class="header-content container">
+            <div class="header-1">
+                <img src="img/lg1.png" alt="">
+                <a href="#" class="btn-2">Ver ahora</a>
+
+            </div>
+            <div class="header-2">
+                <h1>los mejores <br>mangas</h1>
+            </div>
+        </div>
+    </header>
+
+<body>
+    <title>Panel de Administrador</title>
     <section class="container">
         <div class="row">
             <div class="col-md-4">
@@ -150,5 +181,19 @@
         // Mostrar mangas al cargar la página
         mostrarMangas();
     </script>
+    <footer class="footer container">
+        <h3>mangaempire</h3>
+        <ul>
+            <li> <a href="a">Inicio</a></li>
+            <li> <a href="a">Nosotros</a></li>
+            <li> <a href="a">Mangas</a></li>
+            <li> <a href="a">Contacto</a></li>
+        </ul>
+        <audio> <source src="audio/musica1.mp3" type="audio/mpeg"> </audio>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
