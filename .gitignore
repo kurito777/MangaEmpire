@@ -1,0 +1,26 @@
+# Ignorar archivos de configuración locales
+*.sqlite3
+*.pyc
+
+# Ignorar directorio virtualenv
+venv/
+env/
+
+# Ignorar archivos de configuración específicos de IDEs
+.vscode/
+.idea/
+
+# Ignorar archivos de caché y registros de Django
+__pycache__/
+*.log
+
+# Ignorar archivos de migraciones
+*/migrations/
+
+# Ignorar archivos de compilación de Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignorar el archivo de configuración de entorno
+.env
