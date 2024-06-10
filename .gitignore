@@ -16,6 +16,7 @@ __pycache__/
 
 # Ignorar archivos de migraciones
 */migrations/
+!*/migrations/init.py
 
 # Ignorar archivos de compilación de Python
 *.pyc
