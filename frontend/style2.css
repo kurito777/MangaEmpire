@@ -16,9 +16,12 @@ body{
     max-width: 1200px;
     margin: 0 auto;
 }
+.image {
+    background-image: url();
+}
 
 .header{
-    background-image: url(img/bg3.jpg);
+    background-image: url();
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,7 +35,7 @@ body{
     left: 0;
     right: 0;
     display: flex;
-    align-items: center;
+    align-items: last baseline;
     justify-content: space-between;
 }
 .logo{
@@ -249,22 +252,24 @@ hr {
     border-radius: 19px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .login-form button[type="submit"]:hover {
     background-color: #000000;
 }
 .admin-menu {
-    background-color: #000000ce;
+    background-color: #00000069;
     padding: 2px;
-    color: #ff0000;
+    color: #ffffff;
     text-align: center;
     
 }
 
 .upload-manga {
     padding: 30px;
-    color: #ff0400;
+    background-color: #00000069;
+    color: #ffffff;
     text-align: center;
 }
 
@@ -275,7 +280,7 @@ hr {
  border-radius: 15%;
  padding: 0.5%;   
  background-color: #ff0000;   
- color:#000000
+ color:#ffffff
  
 }
 
