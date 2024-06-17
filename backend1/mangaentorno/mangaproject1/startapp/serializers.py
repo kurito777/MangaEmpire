@@ -8,11 +8,11 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'last_name', 'bith_date']
 
 class MangaSerializer(serializers.ModelSerializer):
-    author = AuthorSerializer()  # Serializa la información del autor completa
+    author = AuthorSerializer() 
 
     class Meta:
         model = Manga
-        fields = ['idManga', 'title', 'author', 'estado']
+        fields = ['idManga', 'title']
 
 class TipoSubscripcionSerializer(serializers.ModelSerializer):
     class Meta:

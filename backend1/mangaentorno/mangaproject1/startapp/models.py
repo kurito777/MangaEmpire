@@ -14,8 +14,6 @@ class Author(models.Model):
 class Manga(models.Model):
     idManga = models.CharField(max_length=13, primary_key=True, unique=True, null=False)
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="mangas")
-    estado = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.title} {self.estado} {self.author.name} {self.author.last_name}"
