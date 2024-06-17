@@ -12,7 +12,7 @@ class MangaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Manga
-        fields = ['idManga', 'title', 'author', 'estado']
+        fields = ['idManga', 'title', 'author']
 
 class TipoSubscripcionSerializer(serializers.ModelSerializer):
     class Meta:
