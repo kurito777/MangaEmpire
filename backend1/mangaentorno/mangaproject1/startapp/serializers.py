@@ -19,6 +19,7 @@ class MangaSerializer(serializers.ModelSerializer):
         author = Author.objects.get(pk=author_id)
         manga = Manga.objects.create(author=author, **validated_data)
         return manga
+
 class TipoSubscripcionSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoSubscripcion
@@ -36,3 +37,21 @@ class SubscripcionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscripcion
         fields = ['id', 'tipo', 'usuario', 'fecha_inicio', 'fecha_fin']
+
+    def create(self, validated_data):
+        tipo_data = validated_data.pop('tipo')
+        usuario_data = validated_data.pop('usuario')
+
+        # Obtener el tipo de subscripción existente o crear uno nuevo si no existe
+        tipo_subscripcion = TipoSubscripcion.objects.get_or_create(**tipo_data)[0]
+
+        # Obtener el usuario existente o crear uno nuevo si no existe
+        usuario = User.objects.get_or_create(**usuario_data)[0]
+
+        subscripcion = Subscripcion.objects.create(
+            tipo=tipo_subscripcion,
+            usuario=usuario,
+            **validated_data
+        )
+        return subscripcion
+
