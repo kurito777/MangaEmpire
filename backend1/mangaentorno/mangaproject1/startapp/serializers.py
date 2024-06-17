@@ -8,12 +8,17 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'last_name', 'bith_date']
 
 class MangaSerializer(serializers.ModelSerializer):
-    author = AuthorSerializer() 
+    author_id = serializers.PrimaryKeyRelatedField(queryset=Author.objects.all(), source='author', write_only=True)
 
     class Meta:
         model = Manga
-        fields = ['idManga', 'title']
+        fields = ['idManga', 'title', 'author_id', 'estado']
 
+    def create(self, validated_data):
+        author_id = validated_data.pop('author_id')
+        author = Author.objects.get(pk=author_id)
+        manga = Manga.objects.create(author=author, **validated_data)
+        return manga
 class TipoSubscripcionSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoSubscripcion
