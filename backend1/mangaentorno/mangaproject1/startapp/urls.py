@@ -12,7 +12,7 @@ router.register(r'subscripciones', SubscripcionViewSet)
 
 urlpatterns = [
     path('subir_manga/', subir_manga_view, name='subir_manga'),
-    path('manga/', manga_list_view, name='manga_list'),  # Suponiendo que tienes una vista para listar los mangas
+    path('manga/', name='manga_list'),  # Suponiendo que tienes una vista para listar los mangas
 ]
 
 urlpatterns = [
