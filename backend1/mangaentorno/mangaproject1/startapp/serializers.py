@@ -13,12 +13,12 @@ class MangaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Manga
         fields = ['idManga', 'title', 'author_id', 'estado']
-'''
+
     def create(self, validated_data):
         author_id = validated_data.pop('author_id')
         author = Author.objects.get(pk=author_id)
         manga = Manga.objects.create(author=author, **validated_data)
-        return manga'''
+        return manga
 
 class TipoSubscripcionSerializer(serializers.ModelSerializer):
     class Meta:
