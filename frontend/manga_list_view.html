@@ -1,0 +1,15 @@
+<!-- manga_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Mangas</title>
+</head>
+<body>
+    <h1>Lista de Mangas</h1>
+    <ul>
+        {% for manga in mangas %}
+            <li>{{ manga.idManga }} - {{ manga.title }} - {{ manga.author.name }} - {{ manga.estado }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

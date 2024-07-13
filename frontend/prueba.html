@@ -48,25 +48,41 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-8" id="formularioSubirManga" style="display: none;">
-                <div class="upload-manga">
-                    <h2>Subir Manga</h2>
-                    <form id="formSubirManga">
-                        <div class="form-group">
-                            <label for="titulo">Título:</label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="capitulos">Número de Capítulos:</label>
-                            <input type="number" class="form-control" id="capitulos" name="capitulos" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="estado">Estado del Manga:</label>
-                            <select class="form-control" id="estado" name="estado" required>
-                                <option value="En curso">En curso</option>
-                                <option value="Completo">Completo</option>
-                            </select>
-                        </div>
+            <body>
+                <div class="col-md-8" id="formularioSubirManga">
+                    <div class="upload-manga">
+                        <h2>Subir Manga</h2>
+                        <form id="formSubirManga" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="idManga">ID del Manga:</label>
+                                <input type="text" class="form-control" id="idManga" name="idManga" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Título:</label>
+                                <input type="text" class="form-control" id="title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Autor:</label>
+                                <select class="form-control" id="author" name="author" required>
+                                    {% for author in authors %}
+                                        <option value="{{ author.id }}">{{ author.name }} {{ author.last_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado del Manga:</label>
+                                <select class="form-control" id="estado" name="estado" required>
+                                    <option value="En curso">En curso</option>
+                                    <option value="Completo">Completo</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Subir</button>
+                        </form>
+                    </div>
+                </div>
+            </body>
+            </html>
                         <div class="form-group">
                             <label for="imagen">Seleccionar imagen:</label>
                             <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*" required>

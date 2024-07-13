@@ -1,0 +1,19 @@
+<!-- subir_manga.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subir Manga</title>
+</head>
+<body>
+    <div class="col-md-8" id="formularioSubirManga">
+        <div class="upload-manga">
+            <h2>Subir Manga</h2>
+            <form id="formSubirManga" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Esto renderiza todos los campos del formulario automáticamente -->
+                <button type="submit" class="btn btn-primary">Subir</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
